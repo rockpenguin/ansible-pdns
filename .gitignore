@@ -1,0 +1,9 @@
+# Ignore dotfiles, except...
+
+.*
+!/.gitignore
+
+# Ignore Ansible retry files
+*.retry
+
+tests/inventory
