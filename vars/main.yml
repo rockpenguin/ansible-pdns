@@ -1,2 +1,4 @@
 ---
-# vars file for ansible-pdns
+## file: roles/ansible-pdns/vars/main.yml
+#
+# main vars file for ansible-pdns
