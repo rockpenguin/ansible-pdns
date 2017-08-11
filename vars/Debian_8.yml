@@ -1,0 +1,35 @@
+---
+## file: roles/ansible-pdns/vars/Debian_8.yml
+
+pdns_conf_dir: "/etc/powerdns/"
+pdns_conf_file: "{{ pdns_conf_dir }}pdns.conf"
+
+pdns_launch_modules:
+  - gsqlite3
+
+gsqlite3_db: "/var/db/pdns/zones.db"
+
+gmysql_db_host: "127.0.0.1"
+gmysql_db_port: "3306"
+gmysql_socket: "/tmp/mysql.sock"
+gmysql_db_name: "pdns"
+gmysql_db_user: "powerdns"
+gmysql_db_group: "client"
+gmysql_db_passwd: "Please_Use_Your_Vault!"
+gmysql_dnssec: false
+
+gpgsql_db_host: "127.0.0.1"
+gpgsql_db_port: "5432"
+gpgsql_db_name: "pdns"
+gpgsql_db_user: "powerdns"
+gpgsql_db_passwd: "Please_Use_Your_Vault!"
+gpgsql_dnssec: false
+gpsql-extra-connection-parameters: ""
+
+pdns_authoritative_backends:
+  sqlite3:
+    pkgname: pdns-backend-sqlite
+  mysql:
+    pkgname: pdns-backend-mysql
+  pgsql:
+    pkgname: pdns-backend-postgresql

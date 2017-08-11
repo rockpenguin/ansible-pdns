@@ -1,0 +1,6 @@
+---
+## file: roles/ansible-pdns/vars/_pdns_default.yml
+
+# set to true to install pdns-recursor on the same box
+pdns_install_recursor: false
+pdns_authoritative_port: 53

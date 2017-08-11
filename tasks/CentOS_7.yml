@@ -1,0 +1,46 @@
+---
+## file: roles/ansible-pdns/tasks/CentOS_7.yml
+
+
+# - name: (CentOS 7) Installing the EPEL, yum-plugin-priorities packages
+#   yum:
+#     name: "{{ item }}"
+#     state: latest
+#     update_cache: yes
+#   with_items:
+#     - epel-release
+#     - yum-plugin-priorities
+
+# - name: (CentOS 7) Adding the PowerDNS 4.0.x YUM repo
+#   yum_repository:
+#     name: powerdns-auth-40
+#     state: present
+#     description: PowerDNS YUM repository
+#     baseurl: http://repo.powerdns.com/centos/$basearch/$releasever/auth-40
+#     gpgkey: https://repo.powerdns.com/CBC8B383-pub.asc
+#     gpgcheck: yes
+#     priority: 90
+#     includepkgs: pdns*
+
+# - name: (CentOS 7) Adding the PowerDNS 4.0.x YUM debug symbols repo
+#   yum_repository:
+#     name: powerdns-auth-40-debuginfo
+#     state: present
+#     description: PowerDNS YUM debug symbols repository
+#     baseurl: http://repo.powerdns.com/centos/$basearch/$releasever/auth-40/debug
+#     gpgkey: https://repo.powerdns.com/CBC8B383-pub.asc
+#     gpgcheck: yes
+#     priority: 90
+#     includepkgs: pdns*
+
+# - name: Install pdns.conf template
+#   template:
+#     dest:
+
+# create sqlite3 db, if enabled
+
+# systemctl enable pdns.service
+- name: Print out hash
+  debug:
+    msg: "KEY = {{ item.key }}"
+  with_dict: "{{ pdns_authoritative_backend }}"

@@ -1,0 +1,21 @@
+---
+## file: roles/ansible-pdns/vars/CentOS_7.yml
+
+# These are the default base packges we'll install. The backend packages
+# will specified further down
+
+pdns_base_packages:
+  - pdns
+  - pdns-tools
+
+pdns_conf_dir: "/etc/pdns/"
+pdns_conf_file: "{{ pdns_conf_dir }}pdns.conf"
+pdns_conf_includes: "{{ pdns_conf_dir }}/include.d/"
+
+pdns_authoritative_backends:
+  sqlite3:
+    pkgname: pdns-backend-sqlite
+  mysql:
+    pkgname: pdns-backend-mysql
+  pgsql:
+    pkgname: pdns-backend-postgresql

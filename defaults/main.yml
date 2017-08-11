@@ -1,2 +1,48 @@
 ---
 # defaults file for ansible-pdns
+
+# vars specific to distro type are located in the respective vars directory
+
+# PowerDNS server operational mode. Can be one of: native, master, or slave
+# default is 'native'
+pdns_server_operation: native
+
+pdns_conf:
+  - allow-axfr-ips: "127.0.0.0/8,::1"
+  - guardian: "no"
+  - local-address-nonexist-fail: "yes"
+
+# set the default backend module to sqlite3. If not using sqlite as the backend
+# and/or if using multiple backends then this should be defined in your
+# playbook vars, e.g.
+#
+# pdns_launch_modules:
+#   - gmysql
+#   - gpgsql
+#   - bind
+
+pdns_launch_backends:
+  - gsqlite3
+
+gsqlite3_db: "/var/db/pdns/zones.db"
+
+# Examples for other backends:
+# see corresponding templates for variables and defaults
+
+# gmysql_db_host: "127.0.0.1"
+# gmysql_db_port: "3306"
+# gmysql_db_name: "pdns"
+# gmysql_db_user: "powerdns"
+# gmysql_db_group: "client"
+# gmysql_db_passwd: "Please_Use_Your_Vault!"
+# gmysql_dnssec: "no"
+# gmysql_db_innodb_read_committed: "yes"
+# gmysql_db_timeout: "10"
+
+# gpgsql_db_host: "127.0.0.1"
+# gpgsql_db_port: "5432"
+# gpgsql_db_name: "pdns"
+# gpgsql_db_user: "powerdns"
+# gpgsql_db_passwd: "Please_Use_Your_Vault!"
+# gpgsql_dnssec: false
+# gpsql_extra_connection_parameters: ""
