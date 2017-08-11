@@ -1,0 +1,8 @@
+{# 
+	Included into pdns.conf.j2 when gsqlite3 is listed as a backend
+#}
+
+gsqlite3-database={{ gsqlite3_db | default('/var/db/pdns/zones.db') }}
+gsqlite3-pragma-synchronous={{ gsqlite3_pragma_synchronous | default('0') }}
+gsqlite3-dnssec={{ gsqlite3_dnssec | default('no') }}
+gsqlite3-pragma-foreign-keys={{ sqlite3_pragma_foreign_keys | default('no') }}

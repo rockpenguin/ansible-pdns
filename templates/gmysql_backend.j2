@@ -1,0 +1,13 @@
+{# 
+	Included into pdns.conf.j2 when gmysql is listed as a backend
+#}
+
+gmysql-host={{ gmysql_db_host | default('127.0.0.1') }}
+gmysql-port={{ gmysql_db_port | default('3306') }}
+gmysql-dbname={{ gmysql_db_name | default('pdns') }}
+gmysql-user={{ gmysql_db_user | default('powerdns') }}
+gmysql-group={{ gmysql_db_group | default('client') }}
+gmysql-password={{ gmysql_db_passwd }}
+gmysql-dnssec={{ gmysql_dnssec | default('no') }}
+gmysql-innodb-read-committed={{ gmysql_db_innodb_read_committed | default('yes') }}
+gmysql-timeout={{ gmysql_db_timeout | default('10') }}

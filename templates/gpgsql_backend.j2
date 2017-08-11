@@ -1,0 +1,11 @@
+{# 
+	Included into pdns.conf.j2 when gpgsql is listed as a backend
+#}
+
+gpgsql-host={{ gpgsql_db_host | default('127.0.0.1') }}
+gpgsql-port={{ gpgsql_db_port | default('5432') }}
+gpgsql-dbname={{ gpgsql_db_name | default('pdns') }}
+gpgsql-user={{ gpgsql_db_user | default('powerdns') }}
+gpgsql-password={{ gpgsql_db_passwd }}
+gpsql-dnssec={{ gpgsql_dnssec | default('no') }}
+gpsql-extra-connection-parameters={{ gpsql_extra_connection_parameters|default('""') }}
